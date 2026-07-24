@@ -34,9 +34,9 @@ ITINERARY_ROUTER.get("/", async (req, res, next) => {
   try {
     const itineraries = await getAll(
       req.params.tripId,
-      req.user.userId
+      req.user
     );
-    res.json(itineraries);
+    res.json({data: itineraries});
   } catch (error) {
     next(error);
   }
